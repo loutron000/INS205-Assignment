@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Louis Ugande - Personal Web Page</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #1f2937;
+        color: #e5e7eb;
+        padding: 40px 20px;
+      }
+
+      .container {
+        max-width: 850px;
+        margin: 0 auto;
+        background-color: #2d3748;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      }
+
+      h1 {
+        text-align: center;
+        color: #f8fafc;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #4b5563;
+        padding-bottom: 15px;
+      }
+
+      h2 {
+        color: #d1d5db;
+        margin-bottom: 12px;
+      }
+
+      section {
+        margin-bottom: 30px;
+      }
+
+      p {
+        line-height: 1.7;
+        margin-bottom: 12px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: transform 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+      }
+
+      section {
+        margin-bottom: 30px;
+        padding: 15px;
+        border-radius: 10px;
+        transition: background-color 0.2s ease;
+      }
+
+      section:hover {
+        background-color: #374151;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>Louis Ugande's Portfolio Page</h1>
+      </header>
+
+      <section class="intro">
+        <h2>About Me</h2>
+
+        <p>
+          My name is <strong>Louis Terkula Ugande</strong>. I am a 200 Level
+          student in the Department of Computer Science, University of Jos.
+        </p>
+
+        <p><strong>Department:</strong> Computer Science</p>
+
+        <p><strong>Level:</strong> 200 Level</p>
+
+        <p><strong>Matriculation Number:</strong> UJ/2024/NS/0037</p>
+
+        <p>
+          I am passionate about software development, cybersecurity, emerging
+          technologies, and solving real-world problems through computing. I
+          also enjoy gaming, learning new technical skills, and building
+          practical projects.
+        </p>
+      </section>
+
+      <section class="course">
+        <h2>About This Page</h2>
+
+        <p>
+          This web page was created as part of a coursework assignment for
+          INS205. The purpose of the assignment is to demonstrate the use of
+          HTML for structuring web content and CSS for styling web pages.
+        </p>
+
+        <p>
+          The page serves as a simple personal profile containing information
+          about the student, academic details, interests, and contact
+          information.
+        </p>
+      </section>
+
+      <section class="contact">
+        <h2>Contact</h2>
+
+        <p>
+          For inquiries, academic discussions, collaborations, or general
+          communication, feel free to reach out through my university email
+          address.
+        </p>
+
+        <a href="mailto:2024NS0037@unijos.edu.ng" class="btn" id="send-btn">
+          Send Email
+        </a>
+      </section>
+    </div>
+
+    <script>
+      /* -------------------------------------------------------
+           Matric-number → button colour
+           Replace the matric value below with your own number.
+           ------------------------------------------------------- */
+      const matric = "UJ/2024/NS/0037"; // <-- CHANGE THIS TO YOUR MAT. NO.
+
+      /* CHANGE NOTHING BEYOND THIS POINT - CHANGE NOTHING BEYOND THIS POINT */
+
+      function hashString(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+          hash = (hash * 31 + str.charCodeAt(i)) >>> 0;
+        }
+        return hash;
+      }
+
+      // Normalise input
+      const normalised = matric.trim().toUpperCase();
+
+      // Map the hash to a hue value between 0 and 359 degrees
+      const hue = hashString(normalised) % 360;
+
+      // Build an HSL colour: fixed saturation & lightness, varying hue
+      const buttonColour = `hsl(${hue}, 65%, 45%)`;
+
+      // Apply the colour to the Send Email button
+      document.getElementById("send-btn").style.background = buttonColour;
+    </script>
+  </body>
+</html>
